@@ -28,6 +28,13 @@ function base_setup() {
     );
     add_theme_support( 'custom-header', $header );
     add_theme_support( 'customize-selective-refresh-widgets' );
+    add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
 
 }
 add_action( 'after_setup_theme', 'base_setup' );
+
+function register_navwalker(){
+	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );

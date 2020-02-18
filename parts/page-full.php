@@ -1,16 +1,16 @@
 <?php
-/* loop basics: https://developer.wordpress.org/themes/basics/the-loop/ */
+/* loop basics: https://developer.wordpress.org/themes/template-files-section/page-template-files/ */
+
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="col-12 mb-3">
             <div class="row">
                 <?php
                 if (have_posts()) :
                     while (have_posts()) : the_post();
                 ?>
 
-                        <div class="col-12 mb-3 border-bottom">
                             <a href="<?php echo get_the_permalink() ?>"><?php the_title('<h1 itemprop="title">', '</h1>') ?></a>
                             <div class="tags">
                                 <?php the_tags() ?>
@@ -27,9 +27,8 @@
                                 </a>
                             </div>
                             <div class="content">
-                                <?php the_excerpt(); ?>
+                                <?php the_content(); ?>
                             </div>
-                        </div>
                     
                 <?php
                     endwhile;
@@ -38,11 +37,6 @@
                 endif;
                 ?>
             </div>
-        </div>
-        <div class="col-md-4 col-12">
-            <?php if (is_active_sidebar('sidebar-main')) { ?>
-                <?php dynamic_sidebar('sidebar-main'); ?>
-            <?php } ?>
         </div>
     </div>
 </div>

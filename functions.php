@@ -32,3 +32,14 @@ require_once(get_template_directory() . '/inc/setup.php');
 require_once(get_template_directory() . '/inc/menus.php');
 require_once(get_template_directory() . '/inc/lang.php');
 require_once(get_template_directory() . '/inc/pagination.php');
+require_once(get_template_directory() . '/inc/sidebars.php');
+/* custom logo */
+function custom_logo(){
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+    if($image[0]){
+        echo '<img src="'.$image[0].'" alt="'.bloginfo().'" class="img-fluid">';
+    } else {
+        echo bloginfo();
+    }
+}

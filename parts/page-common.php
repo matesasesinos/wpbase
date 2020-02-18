@@ -1,5 +1,5 @@
 <?php
-/* loop basics: https://developer.wordpress.org/themes/basics/the-loop/ */
+/* loop basics: https://developer.wordpress.org/themes/template-files-section/page-template-files/ */
 ?>
 <div class="container">
     <div class="row">
@@ -27,7 +27,7 @@
                                 </a>
                             </div>
                             <div class="content">
-                                <?php the_excerpt(); ?>
+                                <?php the_content(); ?>
                             </div>
                         </div>
                     

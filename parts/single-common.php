@@ -1,5 +1,5 @@
 <?php
-/* loop basics: https://developer.wordpress.org/themes/basics/the-loop/ */
+/* loop basics: https://developer.wordpress.org/themes/template-files-section/post-template-files/ */
 ?>
 <div class="container">
     <div class="row">
@@ -27,12 +27,18 @@
                                 </a>
                             </div>
                             <div class="content">
-                                <?php the_excerpt(); ?>
+                                <?php the_content(); ?>
                             </div>
                         </div>
-                    
+                        
+                <?php endwhile;?>
+                <?php the_post_navigation( array( //https://developer.wordpress.org/reference/functions/the_post_navigation/
+                'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Siguiente', 'base' ) . '</span> ' .
+                     '<span class="post-title">%title</span>',
+                'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Anterior', 'base' ) . '</span> ' .
+                     '<span class="post-title">%title</span>',
+            ) ); ?>
                 <?php
-                    endwhile;
                 else :
                     _e('Sorry, no posts matched your criteria.', 'textdomain');
                 endif;
